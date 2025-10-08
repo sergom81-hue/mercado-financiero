@@ -1,5 +1,4 @@
-# mercado-financiero[mercado_financiero (3).py](https://github.com/user-attachments/files/22732542/mercado_financiero.3.py)
-[mercado_financiero (3).py](https://github.com/user-attachments/files/22732547/mercado_financiero.3.py)
+[mercado_financiero.py](https://github.com/user-attachments/files/22757784/mercado_financiero.py)
 # -*- coding: utf-8 -*-
 """mercado-financiero
 
@@ -16143,3 +16142,74 @@ with open('signal_engine.py', 'w') as f:
 print("signal_engine.py regenerated.")
 
 print("All necessary files regenerated.")
+
+# Commented out IPython magic to ensure Python compatibility.
+!git clone https://github.com/sergom81-tono/mercado-financiero.git
+# %cd mercado-financiero
+
+from main import cargar_datos  # o según el nombre del archivo
+
+def validar_dataframe(df):
+    print("Shape:", df.shape)
+    print("Columnas:", df.columns.tolist())
+    print("Primeras filas:")
+    print(df.head())
+    print("¿Hay NaNs?", df.isnull().sum())
+
+import pandas as pd
+
+def cargar_datos(ruta_csv):
+    df = pd.read_csv(ruta_csv)
+    return df
+
+def validar_dataframe(df):
+    print("Shape:", df.shape)
+    print("Columnas:", df.columns.tolist())
+    print("¿Hay NaNs?", df.isnull().sum())
+
+import sys
+sys.path.append('./src')
+
+import pandas as pd
+
+def cargar_datos(ruta_csv):
+    df = pd.read_csv(ruta_csv)
+    return df
+
+def validar_dataframe(df):
+    print("Shape:", df.shape)
+    print("Columnas:", df.columns.tolist())
+    print("¿Hay NaNs?", df.isnull().sum())
+
+class OptionsAnalyzer:
+    def __init__(self, df):
+        self.df = df
+    # más métodos aquí...
+
+def generar_senal(analizador):
+    # lógica de señal
+    return "compra"
+
+def enviar_alerta(senal):
+    print(f"Alerta enviada: {senal}")
+
+df = cargar_datos("datos.csv")
+validar_dataframe(df)
+
+analizador = OptionsAnalyzer(df)
+senal = generar_senal(analizador)
+
+enviar_alerta(senal)
+
+from src.cargar_datos import cargar_datos, validar_dataframe
+from src.options import OptionsAnalyzer
+from src.senales import generar_senal
+from src.alertas import enviar_alerta
+
+df = cargar_datos("datos.csv")
+validar_dataframe(df)
+
+analizador = OptionsAnalyzer(df)
+senal = generar_senal(analizador)
+
+enviar_alerta(senal)
